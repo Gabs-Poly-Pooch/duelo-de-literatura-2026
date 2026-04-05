@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duelo de Literatura 2026 — Guía de Práctica</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green: #1a6b3c;
+  --green-light: #e8f5ee;
+  --gold: #c9962a;
+  --gold-light: #fdf3dc;
+  --red: #c0392b;
+  --text: #1a1a1a;
+  --text-muted: #555;
+  --border: #ddd;
+  --bg: #f7f6f2;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  padding: 1.5rem;
+}
+
+.page {
+  max-width: 780px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+/* HEADER */
+.header {
+  background: var(--green);
+  color: white;
+  padding: 1.5rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-left h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.header-left p {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-top: 3px;
+}
+
+.header-right {
+  text-align: right;
+}
+
+.school-badge {
+  background: var(--gold);
+  color: white;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.url-badge {
+  background: rgba(255,255,255,0.15);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 8px;
+  display: block;
+  letter-spacing: 0.3px;
+}
+
+/* BODY */
+.body { padding: 1.5rem 2rem; }
+
+/* INTRO */
+.intro {
+  background: var(--green-light);
+  border-left: 4px solid var(--green);
+  border-radius: 0 8px 8px 0;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.intro strong { color: var(--green); }
+
+/* TWO COLUMN LAYOUT */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+/* SECTION */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--green-light);
+  padding-bottom: 4px;
+  margin-bottom: 0.65rem;
+}
+
+/* STEPS */
+.step {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.step-num {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 50%;
+  background: var(--green);
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+
+.step-text {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.step-text strong { color: var(--text); }
+.step-text em { color: var(--text-muted); font-style: normal; font-size: 0.78rem; }
+
+/* TABS */
+.tab-row {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  margin-bottom: 0.45rem;
+}
+
+.tab-icon {
+  font-size: 0.9rem;
+  min-width: 22px;
+  margin-top: 1px;
+}
+
+.tab-text {
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.tab-text strong { color: var(--text); }
+.tab-text span { color: var(--text-muted); }
+
+/* SCORING */
+.score-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin: 0.6rem 0;
+}
+
+.score-pill {
+  border-radius: 8px;
+  padding: 6px 8px;
+  text-align: center;
+}
+
+.score-pill.correct { background: var(--green-light); }
+.score-pill.partial { background: var(--gold-light); }
+.score-pill.wrong { background: #f5f5f5; }
+
+.score-pts {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--text);
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* RULES */
+.rule {
+  display: flex;
+  gap: 6px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin-bottom: 0.35rem;
+  color: var(--text);
+}
+
+.rule-dot {
+  color: var(--green);
+  font-weight: 700;
+  min-width: 10px;
+}
+
+/* FAQ */
+.faq-item {
+  margin-bottom: 0.55rem;
+}
+
+.faq-q {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.faq-a {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* TIPS */
+.tip-row {
+  display: flex;
+  gap: 6px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin-bottom: 0.35rem;
+}
+
+.tip-icon { min-width: 16px; }
+
+/* FOOTER */
+.footer {
+  background: var(--green);
+  color: white;
+  padding: 0.85rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.footer-left {
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+.footer-right {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 1rem 0;
+}
+
+/* PRINT */
+@media print {
+  body { background: white; padding: 0; }
+  .page { border-radius: 0; border: none; }
+}
+
+@media (max-width: 600px) {
+  .two-col { grid-template-columns: 1fr; }
+  .header { grid-template-columns: 1fr; }
+  .header-right { text-align: left; }
+  .body { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <h1>Duelo de Literatura 2026</h1>
+      <p>Guía de la herramienta de práctica · Practice Tool Guide</p>
+    </div>
+    <div class="header-right">
+      <div class="school-badge">Ainsworth Elementary</div>
+      <a class="url-badge" href="https://duelo-de-literatura-2026.netlify.app" target="_blank">
+        duelo-de-literatura-2026.netlify.app
+      </a>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- INTRO -->
+    <div class="intro">
+      Esta herramienta contiene todas las <strong>preguntas oficiales de práctica y competencia</strong> del Duelo de Literatura 2026. Las preguntas seguirán actualizándose durante las próximas semanas. ¡Entre más practiques, más preparado/a estarás! ·
+      This tool contains all the <strong>official practice and competition questions</strong> for Duelo de Literatura 2026. Questions will continue to be updated over the next few weeks. The more you practice, the more prepared you'll be!
+    </div>
+
+    <div class="two-col">
+
+      <!-- LEFT COLUMN -->
+      <div>
+
+        <!-- HOW TO USE -->
+        <div class="section-title">Cómo usar · How to Use</div>
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            Abre el enlace en cualquier dispositivo. No necesitas cuenta ni contraseña. ·
+            <em>Open the link on any device. No account or password needed.</em>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            Filtra por <strong>libro · book</strong>, <strong>formato · format</strong> y <strong>dificultad · difficulty</strong> usando los menús en la parte superior. ·
+            <em>Filter by book, format, and difficulty using the menus at the top.</em>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            Lee la pregunta y piensa tu respuesta — o discútela con tu equipo. ·
+            <em>Read the question and think of your answer — or discuss it with your team.</em>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-text">
+            Toca <strong>"Ver respuesta · Show Answer"</strong> para revelar la respuesta correcta y la página del libro. ·
+            <em>Tap to reveal the correct answer and book page number.</em>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-text">
+            Marca <strong>"✓ Lo supe · Got it"</strong> o <strong>"✗ Me equivoqué · Missed it"</strong> para llevar tu seguimiento. ·
+            <em>Mark to track your progress.</em>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">6</div>
+          <div class="step-text">
+            Toca <strong>"Siguiente pregunta · Next Question →"</strong> para continuar. ·
+            <em>Tap to continue to the next question.</em>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- TABS -->
+        <div class="section-title">Las 4 pestañas · The 4 Tabs</div>
+
+        <div class="tab-row">
+          <div class="tab-icon">📚</div>
+          <div class="tab-text"><strong>Practicar · Practice</strong> — <span>Práctica libre con filtros · Free practice with filters</span></div>
+        </div>
+
+        <div class="tab-row">
+          <div class="tab-icon">📊</div>
+          <div class="tab-text"><strong>Mi progreso · My Progress</strong> — <span>Ve cuántas preguntas has practicado y qué libros necesitan más atención · See your accuracy and which books need more work</span></div>
+        </div>
+
+        <div class="tab-row">
+          <div class="tab-icon">🗓️</div>
+          <div class="tab-text"><strong>Plan · Practice Plan</strong> — <span>Genera un plan semana por semana imprimible · Generate a printable week-by-week schedule</span></div>
+        </div>
+
+        <div class="tab-row">
+          <div class="tab-icon">🖨️</div>
+          <div class="tab-text"><strong>Imprimir · Print</strong> — <span>Genera hojas de práctica imprimibles con o sin respuestas · Generate printable sheets with or without answers</span></div>
+        </div>
+
+        <div class="tab-row">
+          <div class="tab-icon">❓</div>
+          <div class="tab-text"><strong>Ayuda · Help</strong> — <span>Guía completa de la herramienta · Full tool guide (button at bottom of screen)</span></div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div>
+
+        <!-- COMPETITION RULES -->
+        <div class="section-title">Reglas · Competition Rules</div>
+
+        <div class="rule">
+          <div class="rule-dot">·</div>
+          <div>Los equipos se turnan — Equipo A responde P1, Equipo B responde P2, etc. · <em>Teams alternate questions.</em></div>
+        </div>
+
+        <div class="rule">
+          <div class="rule-dot">·</div>
+          <div>Cada pregunta se lee <strong>dos veces</strong>. Espera a que termine la segunda lectura para responder. · <em>Each question is read twice. Wait for the second reading.</em></div>
+        </div>
+
+        <div class="rule">
+          <div class="rule-dot">·</div>
+          <div>Los equipos tienen <strong>10 segundos</strong> para discutir. · <em>Teams have 10 seconds to discuss.</em></div>
+        </div>
+
+        <div class="rule">
+          <div class="rule-dot">·</div>
+          <div>El portavoz dice: <em>"Nuestra respuesta final es…"</em> en <strong>español</strong>. · <em>Spokesperson answers in Spanish.</em></div>
+        </div>
+
+        <div class="rule">
+          <div class="rule-dot">·</div>
+          <div><strong>Día 1:</strong> Sin robos — el juez lee la respuesta si el equipo falla. · <em>No steals — judge reads answer after a miss.</em></div>
+        </div>
+
+        <div class="rule">
+          <div class="rule-dot">·</div>
+          <div><strong>Día 2:</strong> Con robos — si el primer equipo falla, el otro puede responder. · <em>Steals allowed — other team can answer if first team misses.</em></div>
+        </div>
+
+        <div class="score-row">
+          <div class="score-pill correct">
+            <div class="score-pts">5</div>
+            <div class="score-label">Correcta · Correct</div>
+          </div>
+          <div class="score-pill partial">
+            <div class="score-pts">3</div>
+            <div class="score-label">Parcial · Partial</div>
+          </div>
+          <div class="score-pill wrong">
+            <div class="score-pts">0</div>
+            <div class="score-label">Incorrecta · Incorrect</div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- FAQ -->
+        <div class="section-title">Preguntas frecuentes · FAQ</div>
+
+        <div class="faq-item">
+          <div class="faq-q">¿Estas son las preguntas reales de la competencia? · Are these the actual competition questions?</div>
+          <div class="faq-a">Sí — el mismo banco de preguntas se usará en la competencia. · Yes — the same question bank will be used in competition.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">¿Se guarda mi progreso? · Is my progress saved?</div>
+          <div class="faq-a">Sí, automáticamente en tu dispositivo. No es visible para nadie más. · Yes, automatically on your device. Not visible to anyone else.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">¿Funciona sin internet? · Does it work offline?</div>
+          <div class="faq-a">Necesitas conexión para cargar la página. Usa "Imprimir" para practicar sin internet. · You need a connection to load. Use "Imprimir" for offline practice.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">¿Cómo borro mi historial? · How do I clear my history?</div>
+          <div class="faq-a">Pestaña 📊 Mi progreso → "Borrar mis datos · Clear My Data" al final. · Go to the 📊 tab → tap "Borrar mis datos" at the bottom.</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- TIPS -->
+        <div class="section-title">Consejos · Tips</div>
+
+        <div class="tip-row">
+          <div class="tip-icon">🟢</div>
+          <div>Empieza con preguntas <strong>Fácil · Easy</strong> de un libro a la vez. · <em>Start with Easy questions one book at a time.</em></div>
+        </div>
+
+        <div class="tip-row">
+          <div class="tip-icon">🔀</div>
+          <div>Usa <strong>Mezclar · Shuffle</strong> para simular la competencia con preguntas de todos los libros. · <em>Use Shuffle to simulate competition conditions.</em></div>
+        </div>
+
+        <div class="tip-row">
+          <div class="tip-icon">🗣️</div>
+          <div>Practica siempre diciendo: <em>"Nuestra respuesta final es…"</em> en voz alta. · <em>Always practice saying the answer format out loud.</em></div>
+        </div>
+
+        <div class="tip-row">
+          <div class="tip-icon">⏱️</div>
+          <div>Practica con un temporizador de 10 segundos. · <em>Practice with a 10-second timer.</em></div>
+        </div>
+
+        <div class="tip-row">
+          <div class="tip-icon">📖</div>
+          <div>Cuando falles, busca la página indicada en el libro. · <em>When you miss one, look up the page in the book.</em></div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- end body -->
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-left">Duelo de Literatura 2026 · Ainsworth Elementary · Portland, OR</div>
+    <div class="footer-right">duelo-de-literatura-2026.netlify.app</div>
+  </div>
+
+</div>
+</body>
+</html>
