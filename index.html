@@ -726,6 +726,28 @@
     background: var(--green);
     color: white;
   }
+  #onepager-btn {
+    position: fixed;
+    bottom: 84px;
+    right: 18px;
+    background: white;
+    border: 1.5px solid var(--gold);
+    color: var(--gold);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.3px;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.15s;
+  }
+  #onepager-btn:hover {
+    background: var(--gold);
+    color: white;
+  }
 </style>
 </head>
 <body>
@@ -934,6 +956,7 @@
 
 <!-- Tiny unobtrusive entry point -->
 <button id="help-btn" onclick="window.open('how-to-use.html', '_blank')">? Ayuda · Help</button>
+<button id="onepager-btn" onclick="window.open('duelo-one-pager.html', '_blank')">📄 Guía · Guide</button>
 
 <button id="admin-entry-btn" onclick="openAdminOverlay()">coordinador · coordinator</button>
 
