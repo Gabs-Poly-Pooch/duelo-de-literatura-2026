@@ -1397,6 +1397,7 @@ function checkAdminLogin() {
 function showAdminContent() {
   document.getElementById('admin-content').classList.add('visible');
   updateAdminCounters();
+  renderAdminReportLog();
 }
 
 function updateAdminCounters() {
@@ -1642,9 +1643,6 @@ function clearReportLog() {
   if (!confirm('¿Borrar todos los reportes? · Clear all reports?')) return;
   localStorage.removeItem(REPORT_LOG_KEY); renderAdminReportLog();
 }
-
-const _origShowAdminContent = showAdminContent;
-function showAdminContent() { _origShowAdminContent(); renderAdminReportLog(); }
 </script>
 </body>
 </html>
