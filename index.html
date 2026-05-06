@@ -315,7 +315,50 @@
   }
   #admin-entry-btn:hover { color: var(--text-muted); border-color: #999; }
 
-  /* ── ERROR REPORT ───────────────────────────────────────────── */
+  /* ── BATTLE MODE ─────────────────────────────────────────── */
+  .battle-intro { margin-bottom: 1.25rem; }
+  .battle-intro h2 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--green); margin-bottom: 0.5rem; }
+  .battle-intro p { font-size: 0.85rem; line-height: 1.6; color: var(--text-muted); }
+  .battle-intro em { font-style: normal; }
+  .battle-team-names { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+  .battle-team-input label { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); margin-bottom: 6px; }
+  .battle-team-input input { width: 100%; padding: 9px 12px; border: 1.5px solid var(--border); border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; box-sizing: border-box; }
+  .battle-team-input input:focus { outline: none; border-color: var(--green); }
+  .battle-start-btn { font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700; padding: 12px 28px; border-radius: 10px; border: none; background: var(--green); color: white; cursor: pointer; width: 100%; transition: background 0.15s; }
+  .battle-start-btn:hover { background: #145530; }
+  .battle-scoreboard { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .battle-score-card { border-radius: 12px; padding: 0.85rem 1rem; text-align: center; border: 2px solid transparent; transition: all 0.2s; }
+  .battle-score-card.team-a { background: #e8f0fe; border-color: #4a6fdc; }
+  .battle-score-card.team-b { background: #fde8e8; border-color: #dc4a4a; }
+  .battle-score-card.active { box-shadow: 0 0 0 3px rgba(26,107,60,0.3); transform: scale(1.02); }
+  .battle-score-name { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .battle-score-pts { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; line-height: 1; }
+  .battle-score-qs { font-size: 0.7rem; color: var(--text-muted); margin-top: 2px; }
+  .battle-turn-banner { text-align: center; font-size: 0.95rem; font-weight: 700; padding: 8px 16px; border-radius: 8px; margin-bottom: 0.5rem; background: var(--green-light); color: var(--green); }
+  .battle-q-count { text-align: center; font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+  .battle-timer-wrap { margin: 0.75rem 0; }
+  .battle-timer-bar-bg { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 4px; }
+  .battle-timer-bar { height: 100%; background: var(--green); border-radius: 4px; transition: width 1s linear, background 0.5s; }
+  .battle-timer-label { text-align: center; font-size: 1.4rem; font-weight: 700; font-family: 'Playfair Display', serif; color: var(--text); }
+  .battle-score-btns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.6rem; margin-top: 0.75rem; }
+  .battle-score-btn { font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 600; padding: 10px 8px; border-radius: 8px; border: 1.5px solid; cursor: pointer; transition: all 0.15s; }
+  .battle-score-btn.correct { background: var(--green-light); border-color: var(--green); color: var(--green); }
+  .battle-score-btn.correct:hover { background: var(--green); color: white; }
+  .battle-score-btn.partial { background: var(--gold-light); border-color: var(--gold); color: var(--gold); }
+  .battle-score-btn.partial:hover { background: var(--gold); color: white; }
+  .battle-score-btn.wrong { background: #f5f5f5; border-color: #ccc; color: var(--text-muted); }
+  .battle-score-btn.wrong:hover { background: #e0e0e0; }
+  .battle-results { text-align: center; padding: 1rem 0; }
+  .battle-results h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--green); margin-bottom: 1.25rem; }
+  .battle-final-row { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-radius: 12px; margin-bottom: 0.75rem; font-size: 1rem; font-weight: 600; }
+  .battle-final-row.winner { background: var(--green-light); border: 2px solid var(--green); }
+  .battle-final-row.loser { background: #f5f5f5; border: 2px solid #ddd; }
+  .battle-final-row.tie { background: var(--gold-light); border: 2px solid var(--gold); }
+  .battle-final-pts { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; }
+  @media (max-width: 500px) {
+    .battle-team-names { grid-template-columns: 1fr; }
+    .battle-score-btns { grid-template-columns: 1fr; }
+  }
   .report-section { margin: 1rem auto; max-width: 700px; background: white; border-radius: 12px; border: 1.5px solid var(--border); padding: 1.25rem; }
   .report-section h3 { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); margin-bottom: 0.9rem; }
   .report-toggle { background: none; border: 1.5px solid var(--border); color: var(--text-muted); font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 600; padding: 7px 16px; border-radius: 8px; cursor: pointer; }
@@ -797,6 +840,7 @@
     <button class="student-tab" onclick="showStudentTab('stats')">📊 Mi progreso · My Progress</button>
     <button class="student-tab" onclick="showStudentTab('plan')">🗓️ Plan · Practice Plan</button>
     <button class="student-tab" onclick="showStudentTab('print')">🖨️ Imprimir · Print</button>
+    <button class="student-tab" onclick="showStudentTab('battle')">⚔️ Duelo · Battle</button>
   </div>
 
   <!-- PRACTICE TAB -->
@@ -910,6 +954,50 @@
       <button id="pr-print-btn" onclick="window.print()" style="display:none;font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:600;padding:9px 20px;border-radius:8px;border:1.5px solid var(--border);background:white;cursor:pointer;margin-left:0.5rem;">🖨️ Imprimir · Print · Print</button>
     </div>
     <div id="print-sheet-output"></div>
+  </div>
+
+  <!-- BATTLE TAB -->
+  <div id="student-battle" class="student-section">
+    <div class="battle-setup" id="battle-setup">
+      <div class="battle-intro">
+        <h2>⚔️ Modo Duelo · Battle Mode</h2>
+        <p>Simula una batalla real con 2 equipos. 8 preguntas por equipo, 16 en total, completamente al azar de todos los libros. · <em>Simulate a real battle with 2 teams. 8 questions per team, 16 total, fully randomized from all books.</em></p>
+      </div>
+      <div class="battle-team-names">
+        <div class="battle-team-input">
+          <label>🔵 Equipo A · Team A</label>
+          <input type="text" id="team-a-name" placeholder="Nombre del equipo · Team name" value="Equipo A">
+        </div>
+        <div class="battle-team-input">
+          <label>🔴 Equipo B · Team B</label>
+          <input type="text" id="team-b-name" placeholder="Nombre del equipo · Team name" value="Equipo B">
+        </div>
+      </div>
+      <button class="battle-start-btn" onclick="startBattle()">⚔️ Iniciar Duelo · Start Battle</button>
+    </div>
+
+    <div class="battle-game" id="battle-game" style="display:none">
+      <div class="battle-scoreboard" id="battle-scoreboard"></div>
+      <div class="battle-turn-banner" id="battle-turn-banner"></div>
+      <div class="battle-q-count" id="battle-q-count"></div>
+      <div class="card" id="battle-card" style="margin:1rem 0"></div>
+      <div class="battle-timer-wrap" id="battle-timer-wrap" style="display:none">
+        <div class="battle-timer-bar-bg"><div class="battle-timer-bar" id="battle-timer-bar"></div></div>
+        <div class="battle-timer-label" id="battle-timer-label">15</div>
+      </div>
+      <div class="buttons" id="battle-buttons"></div>
+      <div class="battle-score-btns" id="battle-score-btns" style="display:none">
+        <button class="battle-score-btn correct" onclick="battleScore(5)">✓ Correcta · Correct <strong>+5</strong></button>
+        <button class="battle-score-btn partial" onclick="battleScore(3)">~ Parcial · Partial <strong>+3</strong></button>
+        <button class="battle-score-btn wrong" onclick="battleScore(0)">✗ Incorrecta · Incorrect <strong>+0</strong></button>
+      </div>
+    </div>
+
+    <div class="battle-results" id="battle-results" style="display:none">
+      <h2>🏆 Resultado Final · Final Score</h2>
+      <div id="battle-final-scores"></div>
+      <button class="battle-start-btn" onclick="resetBattle()" style="margin-top:1.5rem">🔄 Nuevo Duelo · New Battle</button>
+    </div>
   </div>
 
 
@@ -1098,12 +1186,146 @@ loadStudentResults();
 
 function showStudentTab(name) {
   document.querySelectorAll('.student-tab').forEach((t,i) => {
-    const names = ['practice','stats','plan','print'];
+    const names = ['practice','stats','plan','print','battle'];
     t.classList.toggle('active', names[i] === name);
   });
   document.querySelectorAll('.student-section').forEach(s => s.classList.remove('active'));
   document.getElementById('student-' + name).classList.add('active');
   if (name === 'stats') renderStudentStats();
+}
+
+/* ══ BATTLE MODE ════════════════════════════════════════════════ */
+let battleQuestions = [], battleIdx = 0, battleScores = [0, 0], battleQsPerTeam = [0, 0];
+let battleTimerInterval = null, battleTimeLeft = 15;
+const BATTLE_QS = 8; // per team
+
+function startBattle() {
+  const teamA = document.getElementById('team-a-name').value.trim() || 'Equipo A';
+  const teamB = document.getElementById('team-b-name').value.trim() || 'Equipo B';
+  // Shuffle ALL questions completely randomly
+  battleQuestions = [...ALL].sort(() => Math.random() - 0.5).slice(0, BATTLE_QS * 2);
+  battleIdx = 0; battleScores = [0, 0]; battleQsPerTeam = [0, 0];
+  document.getElementById('battle-setup').style.display = 'none';
+  document.getElementById('battle-results').style.display = 'none';
+  document.getElementById('battle-game').style.display = 'block';
+  renderBattleQuestion(teamA, teamB);
+}
+
+function renderBattleQuestion(teamA, teamB) {
+  if (battleIdx >= BATTLE_QS * 2) { showBattleResults(teamA, teamB); return; }
+  const teamIdx = battleIdx % 2; // 0 = A, 1 = B
+  const teamName = teamIdx === 0 ? teamA : teamB;
+  const teamColor = teamIdx === 0 ? 'team-a' : 'team-b';
+  const teamEmoji = teamIdx === 0 ? '🔵' : '🔴';
+  const q = battleQuestions[battleIdx];
+  const [book, question, answer, page, type] = q;
+  const qNum = battleIdx + 1;
+
+  // Scoreboard
+  document.getElementById('battle-scoreboard').innerHTML = `
+    <div class="battle-score-card team-a ${teamIdx===0?'active':''}">
+      <div class="battle-score-name">🔵 ${teamA}</div>
+      <div class="battle-score-pts">${battleScores[0]}</div>
+      <div class="battle-score-qs">${battleQsPerTeam[0]}/${BATTLE_QS} preguntas</div>
+    </div>
+    <div class="battle-score-card team-b ${teamIdx===1?'active':''}">
+      <div class="battle-score-name">🔴 ${teamB}</div>
+      <div class="battle-score-pts">${battleScores[1]}</div>
+      <div class="battle-score-qs">${battleQsPerTeam[1]}/${BATTLE_QS} preguntas</div>
+    </div>`;
+
+  document.getElementById('battle-turn-banner').innerHTML = `${teamEmoji} Turno de <strong>${teamName}</strong> · ${teamName}'s turn`;
+  document.getElementById('battle-q-count').textContent = `Pregunta ${qNum} de ${BATTLE_QS * 2} · Question ${qNum} of ${BATTLE_QS * 2}`;
+
+  const bc = type === 'Contenido' ? 'badge-contenido' : 'badge-libro';
+  document.getElementById('battle-card').innerHTML = `
+    <div class="card-top">
+      <span class="badge ${bc}">${type === 'Contenido' ? 'Contenido' : '¿En qué libro?'}</span>
+      ${type === 'Contenido' ? `<span class="book-name">${shortTitle(book)}</span>` : ''}
+    </div>
+    <div class="question-text">${question}</div>
+    <div class="answer-area" id="battle-ans" style="display:none">
+      <div class="answer-label">Respuesta · Answer</div>
+      <div class="answer-text">${answer}</div>
+      ${page && page.trim() ? `<div class="page-ref">Pág. ${page}</div>` : ''}
+    </div>`;
+
+  document.getElementById('battle-score-btns').style.display = 'none';
+  document.getElementById('battle-buttons').innerHTML = `
+    <button id="battle-reveal-btn" class="btn-reveal" onclick="battleReveal('${teamA}','${teamB}')">Ver respuesta · Show Answer</button>`;
+
+  startBattleTimer(teamA, teamB);
+}
+
+function startBattleTimer(teamA, teamB) {
+  battleTimeLeft = 15;
+  clearInterval(battleTimerInterval);
+  const wrap = document.getElementById('battle-timer-wrap');
+  const bar = document.getElementById('battle-timer-bar');
+  const label = document.getElementById('battle-timer-label');
+  wrap.style.display = 'block';
+  bar.style.width = '100%';
+  bar.style.background = 'var(--green)';
+  label.textContent = battleTimeLeft;
+  battleTimerInterval = setInterval(() => {
+    battleTimeLeft--;
+    const pct = (battleTimeLeft / 15) * 100;
+    bar.style.width = pct + '%';
+    label.textContent = battleTimeLeft;
+    if (battleTimeLeft <= 5) bar.style.background = '#e74c3c';
+    else if (battleTimeLeft <= 10) bar.style.background = 'var(--gold)';
+    if (battleTimeLeft <= 0) {
+      clearInterval(battleTimerInterval);
+      battleReveal(teamA, teamB);
+    }
+  }, 1000);
+}
+
+function battleReveal(teamA, teamB) {
+  clearInterval(battleTimerInterval);
+  document.getElementById('battle-timer-wrap').style.display = 'none';
+  document.getElementById('battle-ans').style.display = 'block';
+  document.getElementById('battle-buttons').innerHTML = '';
+  document.getElementById('battle-score-btns').style.display = 'grid';
+  // Store team names on window for scoring
+  window._battleTeamA = teamA; window._battleTeamB = teamB;
+}
+
+function battleScore(pts) {
+  const teamIdx = battleIdx % 2;
+  battleScores[teamIdx] += pts;
+  battleQsPerTeam[teamIdx]++;
+  battleIdx++;
+  renderBattleQuestion(window._battleTeamA, window._battleTeamB);
+}
+
+function showBattleResults(teamA, teamB) {
+  clearInterval(battleTimerInterval);
+  document.getElementById('battle-game').style.display = 'none';
+  document.getElementById('battle-results').style.display = 'block';
+  const [sA, sB] = battleScores;
+  const winner = sA > sB ? teamA : sB > sA ? teamB : null;
+  let html = '';
+  [[teamA, sA, 0],[teamB, sB, 1]].sort((a,b)=>b[1]-a[1]).forEach(([name, score, idx]) => {
+    const isWinner = winner === name;
+    const isTie = !winner;
+    const cls = isTie ? 'tie' : isWinner ? 'winner' : 'loser';
+    const emoji = isTie ? '🤝' : isWinner ? '🏆' : '';
+    html += `<div class="battle-final-row ${cls}">
+      <span>${emoji} ${idx===0?'🔵':'🔴'} ${name}</span>
+      <span class="battle-final-pts">${score} pts</span>
+    </div>`;
+  });
+  if (!winner) html = `<div style="font-size:1.1rem;font-weight:700;color:var(--gold);margin-bottom:1rem">🤝 ¡Empate! · It's a tie!</div>` + html;
+  else html = `<div style="font-size:1.1rem;font-weight:700;color:var(--green);margin-bottom:1rem">🏆 ¡${winner} gana! · ${winner} wins!</div>` + html;
+  document.getElementById('battle-final-scores').innerHTML = html;
+}
+
+function resetBattle() {
+  clearInterval(battleTimerInterval);
+  document.getElementById('battle-game').style.display = 'none';
+  document.getElementById('battle-results').style.display = 'none';
+  document.getElementById('battle-setup').style.display = 'block';
 }
 
 // ─── Session tracking overlay ─────────────────────────────────
