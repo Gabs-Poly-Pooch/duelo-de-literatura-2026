@@ -1460,18 +1460,30 @@ function generatePrintSheet() {
     (diff==='all'||q[5]===diff)
   ).sort(()=>Math.random()-0.5).slice(0,count);
   if (!pool.length) { alert('No hay preguntas con estos filtros. / No questions match these filters.'); return; }
-  const header = `<div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:3px">Duelo de Literatura 2026 — Ainsworth Elementary</div>
-    <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:1rem">${pool.length} preguntas · ${book==='all'?'Todos los libros · All Books':shortTitle(book)} · ${diff==='all'?'Todas las dificultades · All Difficulties':diff}${showAns?' · Con respuestas · With Answers':''}</div>`;
+
   const qs = pool.map((q,i) => {
-    const dc = q[5]==='Fácil'?'badge-facil':q[5]==='Medio'?'badge-medio':'badge-dificil';
-    return `<div class="print-q-row">
-      <div class="print-q-num">${i+1}. <span class="badge ${dc}" style="font-size:0.65rem;padding:2px 7px">${q[5]||''}</span> ${q[3]?'· p.'+q[3]:''}</div>
-      <div class="print-q-text">${q[1]}</div>
-      ${showAns?`<div class="print-q-ans">↳ ${q[2]}</div>`:''}
+    const dl = q[5]||'';
+    const dc = q[5]==='Fácil'?'#1a6b3c':q[5]==='Medio'?'#8a6200':'#c0392b';
+    return `<div style="margin-bottom:1.1rem;padding-bottom:1rem;border-bottom:1px solid #eee">
+      <div style="font-size:10px;color:#888;margin-bottom:3px">${i+1}. &nbsp;<span style="border:1px solid ${dc};color:${dc};font-size:9px;font-weight:700;padding:1px 6px;border-radius:8px">${dl}</span> ${q[3]?'&nbsp;· p.'+q[3]:''} &nbsp;·&nbsp; ${shortTitle(q[0])}</div>
+      <div style="font-size:12px;line-height:1.5;font-weight:600">${q[1]}</div>
+      ${showAns?`<div style="font-size:11px;color:#1a6b3c;font-weight:600;margin-top:4px">↳ ${q[2]}</div>`:''}
     </div>`;
   }).join('');
-  document.getElementById('print-sheet-output').innerHTML = `<div class="print-sheet">${header}${qs}</div>`;
-  document.getElementById('pr-print-btn').style.display = 'inline-block';
+
+  const html = `<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+    <title>Duelo de Literatura 2026</title>
+    <style>body{font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#111;margin:0;padding:1in}h1{font-size:14px;font-weight:bold;color:#1a6b3c;margin:0 0 3px 0}.sub{font-size:10px;color:#666;margin-bottom:1.2rem}@media print{body{padding:0.75in}}</style>
+  </head><body>
+    <h1>Duelo de Literatura 2026 — Ainsworth Elementary</h1>
+    <div class="sub">${pool.length} preguntas · ${book==='all'?'Todos los libros':shortTitle(book)} · ${diff==='all'?'Todas las dificultades':diff}${showAns?' · Con respuestas':''}</div>
+    ${qs}
+    <script>window.onload=function(){window.print();}<\/script>
+  </body></html>`;
+
+  const win = window.open('', '_blank');
+  win.document.write(html);
+  win.document.close();
 }
 
 
