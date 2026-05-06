@@ -772,7 +772,7 @@
         <option value="En qué libro?">¿En qué libro? · Which Book?</option>
         <option value="Contenido">Contenido · Content</option>
       </select>
-    
+    </div>
     <div class="filter-group">
       <label>Dificultad · Difficulty</label>
       <select id="diff-filter">
@@ -781,6 +781,10 @@
         <option value="Medio">Medio · Medium</option>
         <option value="Difícil">Difícil · Hard</option>
       </select>
+    </div>
+    <div class="filter-group">
+      <label>Mezclar · Shuffle</label>
+      <button id="shuffle-btn" onclick="toggleShuffle()" style="padding:8px 14px;border-radius:8px;border:1.5px solid var(--border);background:white;color:var(--text-muted);font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.15s;width:100%">🔀 No · Off</button>
     </div>
   </div>
 
@@ -1249,11 +1253,31 @@ function generatePrintSheet() {
 }
 
 
+let shuffleMode = false;
+
+function toggleShuffle() {
+  shuffleMode = !shuffleMode;
+  const btn = document.getElementById('shuffle-btn');
+  if (shuffleMode) {
+    btn.textContent = '🔀 Sí · On';
+    btn.style.background = 'var(--green)';
+    btn.style.color = 'white';
+    btn.style.borderColor = 'var(--green)';
+  } else {
+    btn.textContent = '🔀 No · Off';
+    btn.style.background = 'white';
+    btn.style.color = 'var(--text-muted)';
+    btn.style.borderColor = 'var(--border)';
+  }
+  applyFilters();
+}
+
 function applyFilters(){
   const book=document.getElementById('book-filter').value;
   const type=document.getElementById('type-filter').value;
   const diff=document.getElementById('diff-filter')?document.getElementById('diff-filter').value:'all';
   filtered=ALL.filter(r=>(book==='all'||r[0]===book)&&(type==='all'||r[4]===type)&&(diff==='all'||r[5]===diff));
+  if(shuffleMode) filtered=[...filtered].sort(()=>Math.random()-0.5);
   used=new Set();sessionSeen=new Set();updateCounter();nextQuestion();
 }
 
